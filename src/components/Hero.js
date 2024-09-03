@@ -5,15 +5,27 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 
 const Hero = (props) => {
-  const { coverImage, tag, title, date } = props;
+  const { coverImage, tag, title, date, set, index, lenght } = props;
+
+  const prevSlide = () => {
+    if (index === 0) {
+      return;
+    }
+
+    set(index - 1);
+  };
+
   return (
     <div className="my-28">
-      <div className="h-[600px] w-full">
-        <img
-          src={coverImage}
-          className="rounded-xl w-[1216px]  absolute h-[600px]"
-        />
-        <div className="bg-white w-[598px] h-[252px] relative rounded-xl bottom-1 left-6 top-80 p-10 flex justify-between flex-col">
+      <div
+        className="h-[600px] w-full rounded-xl flex items-end p-4 "
+        style={{
+          backgroundImage: `url(${coverImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="bg-white w-[598px] h-fill rounded-xl p-10 flex justify-between flex-col ">
           <div>
             <TagButtonBlue tag={tag} className="items-end" />
             <h1 className="text-4xl font-semibold mt-4 ">{title}</h1>
@@ -23,12 +35,17 @@ const Hero = (props) => {
           </div>
         </div>
       </div>
-      <div className="mt-3  w-[1216px] mx-auto flex justify-end">
+      <div className="mt-3  w-full mx-auto flex justify-end">
         <button className="border border-solid rounded">
-          <IoIosArrowBack className="w-[40px] h-[40px]" />
+          <IoIosArrowBack className="w-[40px] h-[40px]" onClick={prevSlide} />
         </button>
         <button className="border border-solid rounded">
-          <IoIosArrowForward className="w-[40px] h-[40px]" />
+          <IoIosArrowForward
+            className="w-[40px] h-[40px]"
+            onClick={() => {
+              set(index + 1);
+            }}
+          />
         </button>
       </div>
     </div>

@@ -10,7 +10,7 @@ const TrendPosts = (props) => {
         backgroundSize: "500px 320px",
       }}
     >
-      <div className="w-56 h-[120px] ">
+      <div className=" h-[120px] ">
         <TagButtonBlue tag={blogTags[0]} />
         <p className="text-white mt-5">{title}</p>
       </div>

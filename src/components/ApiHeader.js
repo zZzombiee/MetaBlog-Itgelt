@@ -16,7 +16,9 @@ const ApiHeader = () => {
           placeholder="Search"
           className="w-[166px] h-9 rounded bg-[#F4F4F5] p-2"
         />
-        <IoIosSearch className="h-full items-center mx-2 w-5" />
+        <button>
+          <IoIosSearch className="h-full items-center mx-2 w-5" />
+        </button>
       </div>
     </div>
   );

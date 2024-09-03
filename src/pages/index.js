@@ -13,30 +13,40 @@ const url = "https://dev.to/api/articles";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const MainBlogPage = () => {
-  const { data, error, isLoading } = useSWR(url, fetcher);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const { data: blogs, error, isLoading } = useSWR(url, fetcher);
+
   if (isLoading) {
     return <p>...Loading</p>;
   }
   if (error) {
     return <p>ERROR</p>;
   }
-  console.log(data);
+
+  const onChangeSlideIndex = (index) => {
+    setCurrentSlideIndex(index);
+  };
+  // console.log(blogs.lenght);
   return (
     <div className="max-w-6xl mx-auto ">
       <ApiHeader />
-      {data.map((datas, index) => {
-        const [count, setCount] = useState(index);
-        return (
-          <Hero
-            coverImage={data[count].cover_image}
-            tag={datas.tag_list[0]}
-            title={datas.title}
-            date={datas.published_at}
-          />
-        );
+      {blogs.map((blog, index) => {
+        if (index === currentSlideIndex) {
+          return (
+            <Hero
+              key={index}
+              coverImage={blog.cover_image}
+              tag={blog.tag_list[0]}
+              title={blog.title}
+              date={blog.published_at}
+              set={onChangeSlideIndex}
+              index={currentSlideIndex}
+            />
+          );
+        }
       })}
-      <Trending datas={data} />
-      <AllBlogPosts data={data} />
+      <Trending datas={blogs} />
+      <AllBlogPosts data={blogs} />
       <div className="bg-gray-100 w-full">
         <About className="bg-gray-100" />
         <Footer />
