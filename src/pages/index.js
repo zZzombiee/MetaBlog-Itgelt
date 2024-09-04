@@ -1,4 +1,4 @@
-import ApiHeader from "@/components/ApiHeader";
+import Header from "@/components/Header";
 import AllBlogPosts from "@/components/AllBlogPosts";
 import Hero from "@/components/Hero";
 import Trending from "@/components/Trending";
@@ -26,29 +26,31 @@ const MainBlogPage = () => {
   const onChangeSlideIndex = (index) => {
     setCurrentSlideIndex(index);
   };
-  // console.log(blogs.lenght);
+  // tags.map((tag, index) => {
+  //   console.log(tag.name);
+  // });
+  const blog = blogs[currentSlideIndex];
+
   return (
-    <div className="max-w-6xl mx-auto ">
-      <ApiHeader />
-      {blogs.map((blog, index) => {
-        if (index === currentSlideIndex) {
-          return (
-            <Hero
-              key={index}
-              coverImage={blog.cover_image}
-              tag={blog.tag_list[0]}
-              title={blog.title}
-              date={blog.published_at}
-              set={onChangeSlideIndex}
-              index={currentSlideIndex}
-            />
-          );
-        }
-      })}
-      <Trending datas={blogs} />
-      <AllBlogPosts data={blogs} />
-      <div className="bg-gray-100 w-full">
-        <About className="bg-gray-100" />
+    <div>
+      <div className="max-w-6xl mx-auto ">
+        <Header />
+        <div className="hidden md:block">
+          <Hero
+            coverImage={blog.cover_image}
+            tag={blog.tag_list[0]}
+            title={blog.title}
+            date={blog.published_at}
+            set={onChangeSlideIndex}
+            index={currentSlideIndex}
+            length={blogs.length}
+          />
+        </div>
+        <Trending />
+        <AllBlogPosts data={blogs} />
+      </div>
+      <div className="bg-gray-100 ">
+        <About />
         <Footer />
       </div>
     </div>

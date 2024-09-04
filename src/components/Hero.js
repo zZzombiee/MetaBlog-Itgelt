@@ -16,7 +16,7 @@ const Hero = (props) => {
   };
 
   return (
-    <div className="my-28">
+    <div className="my-[100px]">
       <div
         className="h-[600px] w-full rounded-xl flex items-end p-4 "
         style={{

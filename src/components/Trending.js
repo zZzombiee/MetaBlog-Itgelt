@@ -1,19 +1,29 @@
 import TrendPosts from "./TrendPosts";
+import useSWR from "swr";
 
-const Trending = (props) => {
-  const { datas } = props;
+const url = "https://dev.to/api/articles?state=rising";
+
+const Trending = () => {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data: blogs, error, isLoading } = useSWR(url, fetcher);
+  if (isLoading) {
+    return <p>...Loading</p>;
+  }
+  if (error) {
+    return <p>ERROR</p>;
+  }
   return (
-    <div className="my-[100px]">
+    <div className="my-[100px] ">
       <h1 className="text-3xl font-bold pb-8">Trending</h1>
       <div className="flex gap-5 ">
-        {datas.map((data, index) => {
+        {blogs.map((blog, index) => {
           if (index < 4)
             return (
               <TrendPosts
-                key={data.id}
-                coverImage={data.cover_image}
-                blogTags={data.tag_list}
-                title={data.title}
+                key={blog.id}
+                coverImage={blog.cover_image}
+                blogTags={blog.tag_list}
+                title={blog.title}
               />
             );
         })}

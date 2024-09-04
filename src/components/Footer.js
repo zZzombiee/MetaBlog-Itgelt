@@ -2,7 +2,7 @@ import MetaBlog from "./icons/MetaBlog";
 
 const Footer = () => {
   return (
-    <div className="border-t border-solid  py-5 mt-6 flex justify-between">
+    <div className="border-t border-solid border-gray-300 py-5 mt-6 flex justify-between mx-auto max-w-6xl">
       <div className="flex gap-3">
         <MetaBlog />
         <div>

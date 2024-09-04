@@ -1,7 +1,7 @@
-import MetaBlog from "@/pages/icon/MeataBlog";
+import MetaBlog from "@/components/icons/MeataBlog";
 import { IoIosSearch } from "react-icons/io";
 
-const ApiHeader = () => {
+const Header = () => {
   return (
     <div className="flex justify-between max-w-screen-xl mx-auto py-9">
       <MetaBlog />
@@ -24,4 +24,4 @@ const ApiHeader = () => {
   );
 };
 
-export default ApiHeader;
+export default Header;

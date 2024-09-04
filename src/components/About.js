@@ -5,7 +5,7 @@ import Twitter from "./icons/Twitter";
 
 const About = () => {
   return (
-    <div className="flex justify-between pt-16">
+    <div className="flex justify-between pt-16 max-w-6xl mx-auto">
       <div>
         <div className="flex flex-col gap-3 w-[280px]">
           <h1 className="text-lg font-bold pb-8">About</h1>
