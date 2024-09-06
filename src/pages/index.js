@@ -1,12 +1,11 @@
-import Header from "@/components/Header";
 import AllBlogPosts from "@/components/AllBlogPosts";
 import Hero from "@/components/Hero";
 import Trending from "@/components/Trending";
-import About from "@/components/About";
-import Footer from "@/components/Footer";
+import Link from "next/link";
 
 import { useState } from "react";
 import useSWR from "swr";
+import Error from "@/components/Error";
 
 const url = "https://dev.to/api/articles";
 
@@ -20,23 +19,24 @@ const MainBlogPage = () => {
     return <p>...Loading</p>;
   }
   if (error) {
-    return <p>ERROR</p>;
+    return (
+      <div className="max-w-screen-lg mx-auto ">
+        <Error />
+      </div>
+    );
   }
 
   const onChangeSlideIndex = (index) => {
     setCurrentSlideIndex(index);
   };
-  // tags.map((tag, index) => {
-  //   console.log(tag.name);
-  // });
   const blog = blogs[currentSlideIndex];
 
   return (
     <div>
       <div className="max-w-6xl mx-auto ">
-        <Header />
         <div className="hidden md:block">
           <Hero
+            id={blog.id}
             coverImage={blog.cover_image}
             tag={blog.tag_list[0]}
             title={blog.title}
@@ -48,10 +48,6 @@ const MainBlogPage = () => {
         </div>
         <Trending />
         <AllBlogPosts data={blogs} />
-      </div>
-      <div className="bg-gray-100 ">
-        <About />
-        <Footer />
       </div>
     </div>
   );

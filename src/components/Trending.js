@@ -21,6 +21,7 @@ const Trending = () => {
             return (
               <TrendPosts
                 key={blog.id}
+                data={blog}
                 coverImage={blog.cover_image}
                 blogTags={blog.tag_list}
                 title={blog.title}

@@ -1,10 +1,13 @@
 import MetaBlog from "./icons/MetaBlog";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="border-t border-solid border-gray-300 py-5 mt-6 flex justify-between mx-auto max-w-6xl">
       <div className="flex gap-3">
-        <MetaBlog />
+        <Link href={"/"}>
+          <MetaBlog />
+        </Link>
         <div>
           <div className="flex">
             <p className="text-xl">Meta</p>

@@ -2,6 +2,7 @@ import Facebook from "./icons/Facebook";
 import Instagram from "./icons/Instagram";
 import LinkedIn from "./icons/LinkedIn";
 import Twitter from "./icons/Twitter";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -21,9 +22,15 @@ const About = () => {
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <p>Home</p>
-        <p>Blog</p>
-        <p>Contact</p>
+        <Link href={"/"}>
+          <p>Home</p>
+        </Link>
+        <Link href={"/allBlogPostPage"}>
+          <p>Blog</p>
+        </Link>
+        <Link href={"contactUs"}>
+          <p>Contact</p>
+        </Link>
       </div>
       <div className="flex gap-6">
         <Facebook />
