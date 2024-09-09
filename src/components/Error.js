@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Error = () => {
   return (
     <div className="w-[640px] h-52 mx-auto flex gap-14 my-[100px] ">
@@ -10,6 +12,9 @@ const Error = () => {
           We're sorry, This page is unknown or does not exist the page you are
           looking for.
         </p>
+        <Link href={"/"}>
+          <button className="btn btn-primary w-fit">Back To Home</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TrendPosts from "./TrendPosts";
 import useSWR from "swr";
 
@@ -12,21 +13,25 @@ const Trending = () => {
   if (error) {
     return <p>ERROR</p>;
   }
+
+  const [currentTrendPost, setCurrentTrendPost] = useState(4);
+
+  const currentPostCount = blogs.slice(0, currentTrendPost);
+
   return (
-    <div className="my-[100px] ">
+    <div className="my-[100px]">
       <h1 className="text-3xl font-bold pb-8">Trending</h1>
       <div className="flex gap-5 ">
-        {blogs.map((blog, index) => {
-          if (index < 4)
-            return (
-              <TrendPosts
-                key={blog.id}
-                data={blog}
-                coverImage={blog.cover_image}
-                blogTags={blog.tag_list}
-                title={blog.title}
-              />
-            );
+        {currentPostCount.map((blog, index) => {
+          return (
+            <TrendPosts
+              key={blog.id}
+              data={blog}
+              coverImage={blog.cover_image}
+              blogTags={blog.tag_list}
+              title={blog.title}
+            />
+          );
         })}
       </div>
     </div>

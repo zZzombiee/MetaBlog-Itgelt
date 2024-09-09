@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import parse from "html-react-parser";
 import useSWR from "swr";
 import moment from "moment";
 import rehypeHighlight from "rehype-highlight";
@@ -13,15 +12,22 @@ const AllBlogs = () => {
 
   const url = `https://dev.to/api/articles/${blogId}`;
 
-  const { data: blogDetail = {}, isLoading } = useSWR(url, fetcher);
+  const { data: blogDetail = {}, error, isLoading } = useSWR(url, fetcher);
 
   if (isLoading) return null;
 
+  if (error) {
+    return (
+      <div className="max-w-screen-lg mx-auto ">
+        <Error />
+      </div>
+    );
+  }
+
   const body_markdown = blogDetail?.body_markdown;
 
-  // console.log(blogDetail);
   return (
-    <div className="">
+    <div className="mb-20">
       <div className="mb-[100px]"></div>
       <div className="flex flex-col  max-w-screen-md mx-auto">
         <p className="font-semibold text-4xl pb-2 ">{blogDetail?.title}</p>
