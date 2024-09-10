@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="border-t border-solid border-gray-300 py-5 mt-6 flex justify-between mx-auto max-w-6xl">
+    <div className="border-t border-solid border-gray-300 py-5 mt-6 flex justify-center md:justify-between mx-auto max-w-6xl">
       <div className="flex gap-3">
         <Link href={"/"}>
           <MetaBlog />
@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="">© All Rights Reserved.</div>
         </div>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="md:flex items-center gap-4 hidden">
         <p className="border-r border-solid pr-4">Terms of Use</p>
         <p className="border-r border-solid pr-4">Privacy Policy</p>
         <p>Cookie Policy</p>

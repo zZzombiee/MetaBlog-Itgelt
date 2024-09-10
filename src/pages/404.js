@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Error = () => {
+const Custom404 = () => {
   return (
     <div className="w-[640px] h-52 mx-auto flex gap-14 my-[100px] ">
       <p className=" border-r border-gray-200 text-7xl flex items-center pr-14">
@@ -19,4 +19,4 @@ const Error = () => {
     </div>
   );
 };
-export default Error;
+export default Custom404;

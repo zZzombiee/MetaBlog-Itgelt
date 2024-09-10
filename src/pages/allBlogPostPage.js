@@ -29,11 +29,7 @@ const AllBlogPostsPage = () => {
     return <p>...Loading</p>;
   }
   if (error) {
-    return (
-      <div className="max-w-screen-lg mx-auto ">
-        <Error />
-      </div>
-    );
+    return <div className="max-w-screen-lg mx-auto "></div>;
   }
 
   const tags = getBlogTags(data);

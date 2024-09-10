@@ -19,7 +19,7 @@ const Header = () => {
           <p>Contact</p>
         </Link>
       </div>
-      <label className="input bg-gray-100 flex items-center gap-2 h-9">
+      <label className=" hidden input bg-gray-100 md:flex items-center gap-2 h-9">
         <input type="text " placeholder="Search" className="w-32" />
         <button>
           <IoIosSearch className="h-full items-center w-5" />

@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import { useState } from "react";
 import useSWR from "swr";
-import Error from "@/components/Error";
 
 const url = "https://dev.to/api/articles";
 
@@ -19,11 +18,7 @@ const MainBlogPage = () => {
     return <p>...Loading</p>;
   }
   if (error) {
-    return (
-      <div className="max-w-screen-lg mx-auto ">
-        <Error />
-      </div>
-    );
+    return <div className="max-w-screen-lg mx-auto "></div>;
   }
 
   const onChangeSlideIndex = (index) => {

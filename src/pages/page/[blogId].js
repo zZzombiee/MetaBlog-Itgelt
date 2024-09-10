@@ -17,11 +17,7 @@ const AllBlogs = () => {
   if (isLoading) return null;
 
   if (error) {
-    return (
-      <div className="max-w-screen-lg mx-auto ">
-        <Error />
-      </div>
-    );
+    return <div className="max-w-screen-lg mx-auto "></div>;
   }
 
   const body_markdown = blogDetail?.body_markdown;
