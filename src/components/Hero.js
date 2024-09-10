@@ -20,7 +20,7 @@ const Hero = (props) => {
     <div className="my-[100px]">
       <Link href={`page/${id}`}>
         <div
-          className="h-[600px] w-full rounded-xl flex items-end p-4 "
+          className="h-[600px] w-full rounded-xl flex items-end p-4 border border-solid"
           style={{
             backgroundImage: `url(${coverImage})`,
             backgroundSize: "cover",

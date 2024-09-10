@@ -6,7 +6,7 @@ const TrendPosts = (props) => {
   return (
     <Link href={`page/${data.id}`}>
       <div
-        className="h-80 w-72 rounded-xl  bg-center p-8 flex flex-col justify-end bg-[#14162466] bg-blend-darken "
+        className="h-80 rounded-xl  bg-center p-8 flex flex-col justify-end bg-[#14162466] bg-blend-darken "
         style={{
           backgroundImage: `url(${coverImage})`,
           backgroundSize: "500px 320px",

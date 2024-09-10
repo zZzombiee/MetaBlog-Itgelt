@@ -8,7 +8,7 @@ const Header = () => {
       <Link href={"/"}>
         <MetaBlog />
       </Link>
-      <div className="flex gap-10 justify-center items-center font-normal text-base text-[#3B3C4A]">
+      <div className="hidden gap-10 justify-center items-center font-normal text-base text-[#3B3C4A] md:flex">
         <Link href={"/"}>
           <p>Home</p>
         </Link>
@@ -19,16 +19,12 @@ const Header = () => {
           <p>Contact</p>
         </Link>
       </div>
-      <div className=" bg-[#F4F4F5] flex rounded">
-        <input
-          type="text "
-          placeholder="Search"
-          className="w-[166px] h-9 rounded bg-[#F4F4F5] p-2"
-        />
+      <label className="input bg-gray-100 flex items-center gap-2 h-9">
+        <input type="text " placeholder="Search" className="w-32" />
         <button>
-          <IoIosSearch className="h-full items-center mx-2 w-5" />
+          <IoIosSearch className="h-full items-center w-5" />
         </button>
-      </div>
+      </label>
     </div>
   );
 };

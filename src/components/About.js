@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const About = () => {
   return (
-    <div className="flex justify-between pt-16 max-w-6xl mx-auto">
-      <div>
+    <div className="flex justify-center md:justify-between pt-16 md:max-w-6xl mx-auto  w-fit md:flex-row flex-col items-center gap-4 md:w-full">
+      <div className="hidden md:flex flex-col">
         <div className="flex flex-col gap-3 w-[280px]">
           <h1 className="text-lg font-bold pb-8">About</h1>
           <p>
@@ -21,18 +21,18 @@ const About = () => {
           <p>Phone: 880 123 456 789</p>
         </div>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-fit">
         <Link href={"/"}>
-          <p>Home</p>
+          <p className="w-fit">Home</p>
         </Link>
         <Link href={"/allBlogPostPage"}>
-          <p>Blog</p>
+          <p className="w-fit">Blog</p>
         </Link>
         <Link href={"contactUs"}>
-          <p>Contact</p>
+          <p className="w-fit">Contact</p>
         </Link>
       </div>
-      <div className="flex gap-6">
+      <div className="flex gap-6 w-fit">
         <Facebook />
         <Twitter />
         <Instagram />
