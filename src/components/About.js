@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const About = () => {
   return (
-    <div className="flex justify-center md:justify-between pt-16 md:max-w-6xl mx-auto  w-fit md:flex-row flex-col md:items-start items-center gap-4 md:w-full">
+    <div className="flex justify-center md:justify-between pt-16 md:max-w-6xl mx-auto w-fit md:flex-row flex-col md:items-start items-center gap-4 md:w-full">
       <div className="hidden md:flex flex-col">
         <div className="flex flex-col gap-3 w-[280px]">
           <h1 className="text-lg font-bold pb-8">About</h1>
@@ -21,7 +21,7 @@ const About = () => {
           <p>Phone: 880 123 456 789</p>
         </div>
       </div>
-      <div className="flex flex-col gap-2 w-fit">
+      <div className="flex flex-row gap-2 w-fit sm:flex-col">
         <Link href={"/"}>
           <p className="w-fit">Home</p>
         </Link>

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 const Layout = (props) => {
   const { children } = props;
   return (
-    <div className="h-screen flex flex-col justify-between">
+    <div className="h-screen flex flex-col justify-between px-4">
       <div>
         <Header />
         {children}
@@ -18,3 +18,5 @@ const Layout = (props) => {
   );
 };
 export default Layout;
+
+// className={`${dark === "dark" ? "/" : ""}`}

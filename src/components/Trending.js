@@ -19,14 +19,13 @@ const Trending = () => {
   const currentPostCount = blogs.slice(0, currentTrendPost);
 
   return (
-    <div className="my-[100px]">
+    <div className=" my-[50px] md:my-[100px]">
       <h1 className="text-3xl font-bold pb-8">Trending</h1>
       <div className="flex flex-col md:flex-row gap-5 h-[670px] overflow-hidden md:h-full">
         {currentPostCount.map((blog, index) => {
           return (
-            <div className="w-full md:w-1/4">
+            <div className="w-full md:w-1/4" key={blog.id}>
               <TrendPosts
-                key={blog.id}
                 data={blog}
                 coverImage={blog.cover_image}
                 blogTags={blog.tag_list}

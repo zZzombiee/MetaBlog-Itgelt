@@ -1,11 +1,7 @@
 import Blogs from "@/components/Blogs";
 import { IoIosMore } from "react-icons/io";
-import { useState } from "react";
-import useSWR from "swr";
-
-const url = "https://dev.to/api/articles";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { useContext, useState } from "react";
+import { DataContext } from "@/components/DataContext";
 
 const getBlogTags = (data) => {
   const tags = [];
@@ -21,16 +17,10 @@ const getBlogTags = (data) => {
   return tags;
 };
 const AllBlogPostsPage = () => {
-  const { data, error, isLoading } = useSWR(url, fetcher);
+  const data = useContext(DataContext);
+
   const [currentPostIndex, setCurrentPostIndex] = useState(12);
   const [selectedTag, setSelectedTag] = useState("");
-
-  if (isLoading) {
-    return <p>...Loading</p>;
-  }
-  if (error) {
-    return <div className="max-w-screen-lg mx-auto "></div>;
-  }
 
   const tags = getBlogTags(data);
 
@@ -52,7 +42,7 @@ const AllBlogPostsPage = () => {
     <div className="max-w-screen-xl mx-auto mt-12">
       <h1 className="text-3xl font-bold px-4 pb-8">All Blog Post</h1>
 
-      <div className="grid grid-cols-3 max-w-screen-xl mx-auto">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 max-w-screen-xl mx-auto grid-cols-1">
         {slicedBlogs.map((blog) => {
           return (
             <Blogs
@@ -70,7 +60,7 @@ const AllBlogPostsPage = () => {
       </div>
       <div className="w-full flex justify-center">
         <button
-          className="border border-solid my-[100px] px-4 py-2 rounded"
+          className="border border-solid my-[50px] md:my-[100px] px-4 py-2 rounded"
           onClick={() => {
             setCurrentPostIndex(currentPostIndex + 9);
           }}

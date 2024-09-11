@@ -108,7 +108,7 @@ const AllBlogPosts = (props) => {
       </div>
       <div className="w-full flex justify-center">
         <button
-          className="border border-solid my-[100px] px-4 py-2 rounded"
+          className="border border-solid my-[50px] md:my-[100px] px-4 py-2 rounded"
           onClick={() => {
             setCurrentPostIndex(currentPostIndex + 9);
           }}
