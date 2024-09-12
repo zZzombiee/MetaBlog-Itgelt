@@ -12,7 +12,6 @@ const getBlogTags = (data) => {
       }
     });
   });
-
   return tags;
 };
 

@@ -17,24 +17,23 @@ const AllBlogs = () => {
   if (isLoading) return null;
 
   if (error) {
-    return <div className="max-w-screen-lg mx-auto "></div>;
+    return;
   }
 
   const body_markdown = blogDetail?.body_markdown;
-
+  console.log(blogDetail);
   return (
-    <div className="mb-20">
-      <div className="mb-[100px]"></div>
-      <div className="flex flex-col  max-w-screen-md mx-auto">
+    <div className="my-20">
+      <div className="flex flex-col max-w-screen-md mx-auto">
         <p className="font-semibold text-4xl pb-2 ">{blogDetail?.title}</p>
         <div className="flex gap-4 ">
-          <div className="flex gap-1">
+          <a href={`${blogDetail?.user?.website_url}`} className="flex gap-1">
             <img
               src={blogDetail?.user?.profile_image}
               className="rounded-full w-7"
             />
             <p className="">{blogDetail?.user?.name}</p>
-          </div>
+          </a>
           <p>{moment(blogDetail?.published_at).format("LL")}</p>
         </div>
         <img className="rounded-xl my-8" src={blogDetail?.cover_image} />

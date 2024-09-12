@@ -8,13 +8,14 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export const DataContext = createContext("");
 
 const DataContextProvider = ({ children }) => {
-  const { data: blogs, error, isLoading } = useSWR(url, fetcher);
+  const { data: blogs, isLoading } = useSWR(url, fetcher);
 
   if (isLoading) {
-    return <p>...Loading</p>;
-  }
-  if (error) {
-    return <div className="max-w-screen-lg mx-auto "></div>;
+    return (
+      <div className="w-screen flex justify-center h-screen items-center">
+        <span className="loading loading-spinner loading-lg  "></span>{" "}
+      </div>
+    );
   }
 
   return <DataContext.Provider value={blogs}>{children}</DataContext.Provider>;
