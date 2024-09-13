@@ -13,15 +13,7 @@ const Blogs = (props) => {
         <img src={coverImage} className="h-60 w-full sm:w-[360px] rounded" />
         <div className="flex flex-col ">
           <div className="">
-            <div className="flex gap-2 flex-wrap h-7 overflow-hidden">
-              {blogTags.map((tag, index) => {
-                return (
-                  <div key={index}>
-                    <TagButton tag={tag} />
-                  </div>
-                );
-              })}
-            </div>
+            <TagButton tag={blogTags[0]} />
             <p className="font-semibold text-2xl h-16 overflow-clip">{title}</p>
           </div>
           <div className="flex gap-5 py-6 items-center">

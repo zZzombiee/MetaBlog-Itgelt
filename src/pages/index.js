@@ -2,8 +2,6 @@ import AllBlogPosts from "@/components/AllBlogPosts";
 import Hero from "@/components/Hero";
 import { DataContext } from "@/components/DataContext";
 import Trending from "@/components/Trending";
-import Link from "next/link";
-
 import { useContext, useState } from "react";
 
 const MainBlogPage = () => {
@@ -12,9 +10,19 @@ const MainBlogPage = () => {
   const blogs = useContext(DataContext);
 
   const onChangeSlideIndex = (index) => {
-    setCurrentSlideIndex(index);
+    if (index === filteredBlog.length) {
+      setCurrentSlideIndex(0);
+    } else if (index < 0) {
+      setCurrentSlideIndex(filteredBlog.length - 1);
+    } else setCurrentSlideIndex(index);
   };
-  const blog = blogs[currentSlideIndex];
+  const filteredBlog = [];
+  blogs.forEach((blog) => {
+    if (blog.cover_image !== null) filteredBlog.push(blog);
+    return false;
+  });
+
+  const blog = filteredBlog[currentSlideIndex];
 
   return (
     <div className="max-w-6xl mx-auto ">

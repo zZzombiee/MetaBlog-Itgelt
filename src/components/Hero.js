@@ -9,10 +9,9 @@ const Hero = (props) => {
   const { coverImage, tag, title, date, set, index, lenght, id } = props;
 
   const prevSlide = () => {
-    if (index === 0) {
-      return;
-    }
-
+    // if (index === 0) {
+    //   return;
+    // }
     set(index - 1);
   };
 
